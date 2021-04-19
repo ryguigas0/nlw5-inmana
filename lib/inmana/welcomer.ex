@@ -5,15 +5,15 @@ defmodule Inmana.Welcomer do
   # Else don't welcome
 
   # Matches this function map param to needed variables
-  def welcome(%{name: name, age: age}) do
+  def welcome(%{"name" => name, "age" => age}) do
     age = String.to_integer(age)
 
     name
     |> String.trim()
     |> String.downcase()
     |> evaluate(age)
-    |> elem(1)
-    |> IO.puts()
+
+    # |> IO.puts()
   end
 
   # Run the matching function

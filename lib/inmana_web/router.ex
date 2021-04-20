@@ -9,7 +9,9 @@ defmodule InmanaWeb.Router do
     # Accept only JSON
     pipe_through :api
 
-    get "/", WelcomeController, :index
+    # get "/", WelcomeController, :index
+
+    post "/restaurants", RestaurantsController, :create
   end
 
   # Enables LiveDashboard only for development

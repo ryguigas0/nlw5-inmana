@@ -38,3 +38,16 @@ mix phx.server
 2. Create the config file with ```mix credo.gen.config```
 3. Set ```Credo.Check.Readability.ModuleDoc``` from ```[]``` to ```false```
 4. Run ```mix credo``` to check for any problems
+
+# Day 1 - Connecting the api with the database
+
+### Generating the migrations with the database
+1. ```mix ecto.gen.migration create_restaurants_table```
+2. Switch from integer ID to uuid, ```config/config.exs``` file
+3. ```mix ecto.migrate```
+
+### Adding a schema in ```restaurant.ex```
+
+### Add a only create restaurant module
+
+### Create a ```restaurant_controller.ex```

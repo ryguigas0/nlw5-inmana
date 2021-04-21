@@ -51,3 +51,15 @@ mix phx.server
 ### Add a only create restaurant module
 
 ### Create a ```restaurant_controller.ex```
+
+# Day 2 - Adding the supplies
+
+### Create the migration with ```mix ecto.gen.migration create_supplies_table```, then migrate with ```mix ecto.migrate```
+- ```mix ecto.reset``` resets all the migrations and database
+
+### Create the schema, and make the "one restaurant has many supplies" connection
+
+### Make the create module
+
+### Prepare the CRUD routes
+

@@ -62,4 +62,6 @@ mix phx.server
 ### Make the create module
 
 ### Prepare the CRUD routes
+- Resources speeds up the process
+- ```mix phx.routes``` shows all the routes
 

@@ -8,8 +8,12 @@ defmodule Inmana do
   """
   # Facade pattern
   alias Inmana.Restaurants.Create, as: RestaurantCreate
+
   alias Inmana.Supplies.Create, as: SuppliesCreate
+  alias Inmana.Supplies.Get, as: SupplyGet
 
   defdelegate create_restaurant(params), to: RestaurantCreate, as: :call
+
   defdelegate create_supply(params), to: SuppliesCreate, as: :call
+  defdelegate get_supply(uuid), to: SupplyGet, as: :call
 end

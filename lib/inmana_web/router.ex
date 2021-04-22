@@ -34,5 +34,11 @@ defmodule InmanaWeb.Router do
       pipe_through [:fetch_session, :protect_from_forgery]
       live_dashboard "/dashboard", metrics: InmanaWeb.Telemetry
     end
+
+    # Routes the sent emails to here
+  end
+
+  if Mix.env() == :dev do
+    forward "/emails-sent", Bamboo.SentEmailViewerPlug
   end
 end

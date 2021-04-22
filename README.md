@@ -19,5 +19,6 @@
   - JWT tokens
   - Email confirmation
   - Restaurants can switch email, name and password with confirmation
+- Same supplies, different expiration date
 - Mobile-first web frontend
 - Download as webapp

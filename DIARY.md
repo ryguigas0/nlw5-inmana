@@ -65,3 +65,6 @@ mix phx.server
 - Resources speeds up the process
 - ```mix phx.routes``` shows all the routes
 
+### Bamboo for creating email notifications
+
+### Enums for useful list functions

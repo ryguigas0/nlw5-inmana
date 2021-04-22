@@ -22,6 +22,8 @@ config :inmana, InmanaWeb.Endpoint,
   pubsub_server: Inmana.PubSub,
   live_view: [signing_salt: "6JaMI1kM"]
 
+config :inmana, Inmana.Mailer, adapter: Bamboo.LocalAdapter
+
 # Configures Elixir's Logger
 config :logger, :console,
   format: "$time $metadata[$level] $message\n",

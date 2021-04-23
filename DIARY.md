@@ -84,3 +84,9 @@ mix phx.server
 ### Run tests with ```mix test```
 
 ### Get test coverage with ```mix test --cover```
+
+### Using exoveralls for getting test coverage
+- Add the dep
+- Add configuration
+- Run ```mix coveralls.html```
+- Open ```inmana/cover/excoveralls.html``` file on the browser

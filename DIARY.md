@@ -68,3 +68,11 @@ mix phx.server
 ### Bamboo for creating email notifications
 
 ### Enums for useful list functions
+
+# Day 3 - Tasks and Genservers
+
+### Turn the email notifier from sync each to async each with streams and tasks
+
+### Use genserver for email notifier scheduling
+
+### Use a supervisor for automatically starting the genserver

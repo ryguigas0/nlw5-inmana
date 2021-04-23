@@ -76,3 +76,11 @@ mix phx.server
 ### Use genserver for email notifier scheduling
 
 ### Use a supervisor for automatically starting the genserver
+
+# Day 4 - Ready, set, TEST
+
+### Create test on ```tests``` folder
+
+### Run tests with ```mix test```
+
+### Get test coverage with ```mix test --cover```

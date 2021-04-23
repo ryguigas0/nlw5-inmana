@@ -4,21 +4,26 @@
 - REST api
 - Can add supplies and restaurants
 - Can access supply information
-  - Name of the product
-  - Who produced it
-  - When it was made (dd/mm/yyyy)
+  - Product description
   - When it expires (dd/mm/yyyy)
   - Who is responsible for it
 - Can generate a report on expiring items every week for each restaurant
-- Can send a report to each restaurants email
+- Can send an automatic report to each restaurants email
 
 ## My challenges
-- Restaurants inventories CRUD
-  - Restaurants can have multiple supply inventories with names and locations
-- Account CRUD
-  - JWT tokens
-  - Email confirmation
-  - Restaurants can switch email, name and password with confirmation
-- Same supplies, different expiration date
-- Mobile-first web frontend
-- Download as webapp
+- Backend
+  - Make test files for everything
+  - Restaurants inventories CRUD
+    - Restaurants can have multiple supply inventories with names and locations
+  - Account CRUD
+    - JWT tokens
+    - Email confirmation
+    - Restaurants can switch email, name and password with confirmation
+  - Add more supply info
+    - When it was made (dd/mm/yyyy)
+    - Name of the product
+    - Who produced it
+  - Same supplies, different expiration date
+- Frontend
+  - Mobile-first web frontend
+  - Download as webapp

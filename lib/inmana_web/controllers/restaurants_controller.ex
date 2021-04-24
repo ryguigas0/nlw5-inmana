@@ -13,4 +13,20 @@ defmodule InmanaWeb.RestaurantsController do
       |> render("create.json", restaurant: restaurant)
     end
   end
+
+  def show(conn, params) do
+    with {:ok, %Restaurant{} = restaurant} <- Inmana.show_restaurant(params) do
+      conn
+      |> put_status(:found)
+      |> render("show.json", restaurant: restaurant)
+    end
+  end
+
+  # def delete(conn, params) do
+  #   with {:ok, %Restaurant{} = restaurant} <- Inmana.delete_restaurant(params) do
+  #     conn
+  #     |> put_status(:ok)
+  #     |> render("delete.json", restaurant: restaurant)
+  #   end
+  # end
 end

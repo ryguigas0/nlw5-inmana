@@ -21,4 +21,20 @@ defmodule InmanaWeb.SuppliesController do
       |> render("show.json", supply: supply)
     end
   end
+
+  def delete(conn, %{"id" => uuid}) do
+    with {:ok, %Supply{} = supply} <- Inmana.delete_supply(uuid) do
+      conn
+      |> put_status(:ok)
+      |> render("delete.json", supply: supply)
+    end
+  end
+
+  # def update(conn, params) do
+  #   with {:ok, %Supply{} = supply} <- Inmana.update_supply(params) do
+  #     conn
+  #     |> put_status(:ok)
+  #     |> render("update.json", supply: supply)
+  #   end
+  # end
 end

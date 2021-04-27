@@ -9,6 +9,7 @@ defmodule Inmana do
   # Facade pattern
   alias Inmana.Restaurants.Create, as: RestaurantCreate
   alias Inmana.Restaurants.Get, as: RestaurantShow
+  alias Inmana.Restaurants.Delete, as: RestaurantDelete
 
   alias Inmana.Supplies.Create, as: SuppliesCreate
   alias Inmana.Supplies.Delete, as: SupplyDelete
@@ -17,6 +18,7 @@ defmodule Inmana do
 
   defdelegate create_restaurant(params), to: RestaurantCreate, as: :call
   defdelegate show_restaurant(params), to: RestaurantShow, as: :call
+  defdelegate delete_restaurant(params), to: RestaurantDelete, as: :call
 
   defdelegate create_supply(params), to: SuppliesCreate, as: :call
   defdelegate get_supply(uuid), to: SupplyGet, as: :call

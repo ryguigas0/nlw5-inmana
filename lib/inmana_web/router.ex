@@ -9,7 +9,7 @@ defmodule InmanaWeb.Router do
     # Accept only JSON
     pipe_through :api
 
-    resources "/restaurants", RestaurantsController, only: [:create, :show]
+    resources "/restaurants", RestaurantsController, only: [:create, :show, :delete]
 
     resources "/supplies", SuppliesController, only: [:create, :show, :delete, :update]
   end

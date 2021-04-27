@@ -22,11 +22,11 @@ defmodule InmanaWeb.RestaurantsController do
     end
   end
 
-  # def delete(conn, params) do
-  #   with {:ok, %Restaurant{} = restaurant} <- Inmana.delete_restaurant(params) do
-  #     conn
-  #     |> put_status(:ok)
-  #     |> render("delete.json", restaurant: restaurant)
-  #   end
-  # end
+  def delete(conn, params) do
+    with {:ok, %Restaurant{} = restaurant} <- Inmana.delete_restaurant(params) do
+      conn
+      |> put_status(:ok)
+      |> render("delete.json", restaurant: restaurant)
+    end
+  end
 end

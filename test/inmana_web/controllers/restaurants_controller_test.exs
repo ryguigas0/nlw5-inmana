@@ -2,8 +2,6 @@ defmodule InmanaWeb.RestaurantsControllerTest do
   # Test controller
   use InmanaWeb.ConnCase
 
-  test_id
-
   describe "create/2" do
     test "When the params are valid, create a restaurant", %{conn: conn} do
       params = %{name: "cool name", email: "stock@email.com"}
@@ -21,7 +19,7 @@ defmodule InmanaWeb.RestaurantsControllerTest do
                  "email" => "stock@email.com",
                  "name" => "cool name",
                  # id is always different, so the value does not matter
-                 "id" => test_id
+                 "id" => _id
                }
              } = response
     end
@@ -46,24 +44,35 @@ defmodule InmanaWeb.RestaurantsControllerTest do
   end
 
   describe "get/1" do
-    # TODO: Fix this test
-    # test "When the uuid is valid, return a restaurant", %{conn: conn} do
-    #   response =
-    #     conn
-    #     # Do a post on the route
-    #     |> get(Routes.restaurants_path(conn, :show, "9a80c003-7a84-4f42-bffc-3d149f1dca61"))
-    #     # Assert the status and if its json
-    #     |> json_response(:not_found)
+    test "When the uuid is valid, return a restaurant", %{conn: conn} do
+      params = %{name: "cool name", email: "stock@email.com"}
 
-    #   assert %{
-    #            "mensage" => "Restaurant found!",
-    #            "restaurant" => %{
-    #              "email" => "vokimil402@hype68.com",
-    #              "name" => "Gamers united",
-    #              "id" => "9a80c003-7a84-4f42-bffc-3d149f1dca61"
-    #            }
-    #          } = response
-    # end
+      response =
+        conn
+        # Create the restaurant
+        |> post(Routes.restaurants_path(conn, :create, params))
+        # Prepares the response
+        |> json_response(:created)
+
+      created_restaurant = response["restaurant"]
+      created_id = created_restaurant["id"]
+
+      response =
+        conn
+        # Do a post on the route
+        |> get(Routes.restaurants_path(conn, :show, created_id))
+        # Assert the status and if its json
+        |> json_response(:found)
+
+      assert %{
+               "restaurant" => %{
+                 "email" => "stock@email.com",
+                 "name" => "cool name",
+                 "id" => _id
+               },
+               "message" => "Restaurant found!"
+             } = response
+    end
 
     test "When the id is invalid, returns not found", %{conn: conn} do
       response =
@@ -77,5 +86,41 @@ defmodule InmanaWeb.RestaurantsControllerTest do
     end
   end
 
-  # TODO: Do restaurant deletion test
+  describe "delete/1" do
+    test "When the uuid is valid, delete a restaurant", %{conn: conn} do
+      params = %{name: "cool name", email: "stock@email.com"}
+
+      response =
+        conn
+        # Create the restaurant
+        |> post(Routes.restaurants_path(conn, :create, params))
+        # Prepares the response
+        |> json_response(:created)
+
+      created_restaurant = response["restaurant"]
+      created_id = created_restaurant["id"]
+
+      response =
+        conn
+        # Do a delete on the route
+        |> delete(Routes.restaurants_path(conn, :delete, created_id))
+        # Assert the status and if its json
+        |> json_response(:ok)
+
+      assert %{
+               "message" => "Restaurant was deleted!"
+             } = response
+    end
+
+    test "When the id is invalid, returns not found", %{conn: conn} do
+      response =
+        conn
+        # Do a post on the route
+        |> get(Routes.restaurants_path(conn, :show, "9a80c003-7a84-4f42-bffc-3d149f1dca62"))
+        # Assert the status and if its json
+        |> json_response(:not_found)
+
+      assert %{"mensage" => "Restaurant not found"} = response
+    end
+  end
 end

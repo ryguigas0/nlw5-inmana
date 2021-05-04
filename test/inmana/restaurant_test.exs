@@ -9,7 +9,7 @@ defmodule Inmana.RestaurantTest do
     test "When the data is valid, return valid changeset" do
       params = %{email: "stock@email.com", name: "cool name"}
 
-      response = Restaurant.changeset(params)
+      response = Restaurant.changeset(%Restaurant{}, params)
 
       assert %Changeset{
                changes: %{email: "stock@email.com", name: "cool name"},
@@ -20,7 +20,7 @@ defmodule Inmana.RestaurantTest do
     test "When the data is invalid, return a invalid changeset" do
       params = %{email: "stockemail.com", name: "c"}
 
-      response = Restaurant.changeset(params)
+      response = Restaurant.changeset(%Restaurant{}, params)
 
       assert %Changeset{valid?: false} = response
 

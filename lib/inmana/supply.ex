@@ -24,8 +24,8 @@ defmodule Inmana.Supply do
   end
 
   # Data casting and validation
-  def changeset(params) do
-    %__MODULE__{}
+  def changeset(supply, params \\ %{}) do
+    supply
     |> cast(params, @required_params)
     |> validate_required(@required_params)
     |> validate_length(:description, min: 3)

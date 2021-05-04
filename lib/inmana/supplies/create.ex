@@ -2,8 +2,7 @@ defmodule Inmana.Supplies.Create do
   alias Inmana.{Repo, Supply}
 
   def call(params) do
-    params
-    |> Supply.changeset()
+    Supply.changeset(%Supply{}, params)
     |> Repo.insert()
     |> handle_insert()
   end

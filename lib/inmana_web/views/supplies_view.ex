@@ -11,4 +11,7 @@ defmodule InmanaWeb.SuppliesView do
 
   def render("delete.json", %{supply: _supply}),
     do: %{mensage: "The supply was deleted"}
+
+  def render("update.json", %{supply: supply}),
+    do: %{mensage: "The supply was updated", supply: supply}
 end

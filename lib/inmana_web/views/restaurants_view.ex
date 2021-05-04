@@ -15,9 +15,15 @@ defmodule InmanaWeb.RestaurantsView do
     }
   end
 
-  def render("delete.json", %{restaurant: restaurant}) do
+  def render("delete.json", %{restaurant: _restaurant}) do
     %{
-      message: "Restaurant was deleted!",
+      message: "Restaurant was deleted!"
+    }
+  end
+
+  def render("update.json", %{restaurant: restaurant}) do
+    %{
+      message: "Restaurant was updated!",
       restaurant: restaurant
     }
   end

@@ -29,4 +29,12 @@ defmodule InmanaWeb.RestaurantsController do
       |> render("delete.json", restaurant: restaurant)
     end
   end
+
+  def update(conn, params) do
+    with {:ok, %Restaurant{} = restaurant} <- Inmana.update_restaurant(params) do
+      conn
+      |> put_status(:ok)
+      |> render("update.json", restaurant: restaurant)
+    end
+  end
 end
